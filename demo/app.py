@@ -1,6 +1,7 @@
 import json
 import os
 from bottle import default_app
+from bottle import delete
 from bottle import get
 from bottle import post
 from bottle import request
@@ -32,6 +33,15 @@ def get_data(id):
     data = get_bucket().get(id)
     if data.data:
         return data.data
+    else:
+        response.status = 404
+        return ''
+
+@delete('/<id>')
+def delete_data(id):
+    data = get_bucket().get(id)
+    if data.data:
+        data.delete()
     else:
         response.status = 404
         return ''
