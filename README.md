@@ -11,7 +11,7 @@ Install fig
 
 Run riak backend for development:
 
-    fig up -f dev.yml
+    fig -f dev.yml up
 
 Run demo application:
 
